@@ -20,11 +20,11 @@ ap.add_argument("-x", "--aa", nargs='+', required=True,)
 ap.add_argument("-z", "--bb", nargs='+', required=True,)
 args = vars(ap.parse_args())
 
-for equation in args["aa"]:
-    matrix_1.append([int(x) for x in equation.split()])
+for m1 in args["aa"]:
+    matrix_1.append([int(x) for x in m1.split()])
 
-for result in args["bb"]:
-    matrix_2.append([int(x) for x in result.split()])
+for m2 in args["bb"]:
+    matrix_2.append([int(x) for x in m2.split()])
 
 print(matrix_1)
 print(matrix_2)
