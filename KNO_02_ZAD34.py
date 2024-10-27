@@ -9,7 +9,7 @@ def equations(first_matrix,second_matrix):
         C1 = tf.linalg.inv(A1)
         return tf.matmul(C1, A2)
     except exception as e:
-        print("nie ma rozwiązania")
+        return "nie ma rozwiązania"
 
 
 matrix_1 = []
