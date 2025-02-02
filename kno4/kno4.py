@@ -31,8 +31,6 @@ X_val, X_test, y_val, y_test = train_test_split(X_test_, y_test_, test_size=0.5,
 
 baseline_model = tf.keras.models.load_model('my_model2.keras')
 
-import tensorflow as tf
-
 
 def create_model(dropout_rate, units, learning_rate):
     model = tf.keras.models.Sequential()
