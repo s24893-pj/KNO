@@ -31,12 +31,6 @@ X_val, X_test, y_val, y_test = train_test_split(X_test_, y_test_, test_size=0.5,
 
 baseline_model = tf.keras.models.load_model('my_model2.keras')
 
-# val_loss, val_accuracy = baseline_model.evaluate(X_val, y_val)
-# print(f'Wynik na zbiorze walidacyjnym - Loss: {val_loss}, Accuracy: {val_accuracy}')
-#
-# test_loss, test_accuracy = baseline_model.evaluate(X_test, y_test)
-# print(f'Wynik na zbiorze testowym - Loss: {test_loss}, Accuracy: {test_accuracy}')
-
 import tensorflow as tf
 
 
@@ -56,44 +50,6 @@ def create_model(dropout_rate, units, learning_rate):
 
     return model
 
-# dropout_rates = [0.2, 0.4]
-# units_options = [[128, 63, 32, 16, 8], [12, 24, 36]]
-# learning_rates = [0.001, 0.01]
-#
-# results = []
-#
-# for dropout_rate in dropout_rates:
-#     for units in units_options:
-#         for learning_rate in learning_rates:
-#             model = create_model(dropout_rate=dropout_rate, units=units, learning_rate=learning_rate)
-#
-#             model.fit(X_train, y_train, epochs=5, batch_size=32, validation_data=(X_val, y_val), verbose=0)
-#
-#             val_loss, val_accuracy = model.evaluate(X_val, y_val, verbose=0)
-#
-#             results.append({
-#                 'dropout_rate': dropout_rate,
-#                 'units': units,
-#                 'learning_rate': learning_rate,
-#                 'val_loss': val_loss,
-#                 'val_accuracy': val_accuracy
-#             })
-#
-# sorted_results = sorted(results, key=lambda x: x['val_accuracy'], reverse=True)
-#
-# best_result = sorted_results[0]
-#
-# print("Najlepszy zestaw parametrów:")
-# print(f"Dropout rate: {best_result['dropout_rate']}")
-# print(f"Units: {best_result['units']}")
-# print(f"Learning rate: {best_result['learning_rate']}")
-# print(f"Validation Loss: {best_result['val_loss']}")
-# print(f"Validation Accuracy: {best_result['val_accuracy']}")
-#
-# baseline_test_loss, baseline_test_accuracy = baseline_model.evaluate(X_test, y_test, verbose=0)
-#
-# print("Model bazowy (Baseline) - Test loss:", baseline_test_loss)
-# print("Model bazowy (Baseline) - Test accuracy:", baseline_test_accuracy)
 
 log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
